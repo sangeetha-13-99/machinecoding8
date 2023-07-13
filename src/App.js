@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import { createBrowserRouter,RouterProvider} from "react-router-dom"
 import './App.css';
+import { Box } from "@chakra-ui/react";
+import { Home } from "./components/Home";
+import { Events } from "./components/Events";
+import { EventDetail } from "./components/EventDetail";
+
+
 
 function App() {
+
+  const router=createBrowserRouter([
+    {path:"/", element:<Home/>, children:[
+      {path:"/",element:<Events/>},
+      {path:"/:eventDetailId", element:<EventDetail/>},
+    ]}
+  ])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box className="App" h="100vh">
+      <RouterProvider router={router}/>
+    </Box>
   );
 }
 
