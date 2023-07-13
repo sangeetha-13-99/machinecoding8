@@ -16,7 +16,7 @@ function App() {
     ]}
   ])
   return (
-    <Box className="App" h="100vh">
+    <Box className="App" h="100vh" >
       <RouterProvider router={router}/>
     </Box>
   );

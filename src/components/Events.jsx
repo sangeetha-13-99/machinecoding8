@@ -21,7 +21,7 @@ export const Events = () => {
         dispatch({type:"typeFilter",payload:e.target.value});
     }
   return (
-    <Box w="100%">
+    <Box w="80%" margin="auto">
     <HStack justifyContent="space-around" w="100%" alignItems="start">
         <Heading fontSize="3rem">MeetUp Events</Heading>
         <Box>
@@ -31,8 +31,8 @@ export const Events = () => {
         </Select>
         </Box>
     </HStack>
-    <HStack justifyContent="space-between" g="4" flexWrap="wrap">
-        <Text>{events.length>0?"Showing Searched Events Data":"Showing All Events Data"}</Text>
+    <Text my="4">{events.length>0?"Showing Searched Events Data":"Showing All Events Data"}</Text>
+    <HStack justifyContent="space-around" g="8" flexWrap="wrap">
         {getEvents.map(event=>{
             return <EventCard key={event.id} event={event}/>
         })}
